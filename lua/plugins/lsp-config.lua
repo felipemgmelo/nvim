@@ -27,11 +27,7 @@ return {
       vim.keymap.set("n", "<leader>dl", vim.diagnostic.open_float, { desc = "Diagnostic: Show line diagnostics" })
       vim.keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Diagnostic: Set location list" })
       
-      -- Setup LSP servers (install via Mason :MasonInstall <server>)
-      -- For JDTLS: :MasonInstall jdtls
-      
-      -- Enable LSP servers using the new Neovim 0.11+ API
-      vim.lsp.enable("jdtls")
+      vim.lsp.enable("jdtls")     --
       vim.lsp.enable('pyright')
       vim.lsp.enable('ts_ls')
       vim.lsp.enable('gopls')

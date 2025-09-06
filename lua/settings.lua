@@ -20,7 +20,7 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-
+vim.opt.swapfile = false
 -- Select visual mode
 vim.cmd([[ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 
@@ -32,4 +32,5 @@ vim.opt.sidescroll = 1
 vim.o.exrc = true
 
 vim.o.completeopt = "menu,menuone,noinsert,noselect,popup"
+vim.opt.fixendofline = false
 

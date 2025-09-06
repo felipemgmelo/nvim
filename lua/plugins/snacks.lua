@@ -10,4 +10,12 @@ return {
     statuscolumn = { enabled = true },
     words = { enabled = true },
   },
+  config = function(_, opts)
+    local snacks = require("snacks")
+    snacks.setup(opts)
+    vim.api.nvim_create_user_command('SnacksNotifications', function()
+      snacks.notifier.show_history()
+    end, { desc = 'Show snacks.nvim notification history' })
+  end
+
 }
