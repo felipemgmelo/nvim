@@ -19,22 +19,10 @@ return {
     providers = {
       copilot = {
         model = "gpt-4.1", -- your desired model (or use gpt-4o, etc.)
-        extra_request_body = {
-          temperature = 0.1,
-        },
       },
     },
-    system_prompt = function()
-      local hub = require("mcphub").get_hub_instance()
-      return hub and hub:get_active_servers_prompt() or ""
-    end,
-    custom_tools = function()
-      return {
-        require("mcphub.extensions.avante").mcp_tool(),
-      }
-    end,
    behaviour = {
-      enable_token_counting = false, -- Whether to enable token counting. Default to true.
+      enable_token_counting = true, -- Whether to enable token counting. Default to true.
     },
   windows = {
     position = "left", -- Position of the Avante window

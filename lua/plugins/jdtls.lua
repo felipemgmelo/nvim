@@ -26,6 +26,12 @@ return {
       local path_to_jtest = path_to_mason_packages .. "/java-test"
       vim.list_extend(bundles, vim.split(vim.fn.glob(path_to_jtest .. "/extension/server/*.jar", true), "\n"))
 
+
+      vim.keymap.set('n', 't<C-j>', function() require'jdtls'.test_class() end, { desc = "Test Java class" })
+      ---    create a command that will execute jdtls.test_class() function
+      vim.api.nvim_create_user_command('JdtTestClass', function() require'jdtls'.test_class() end, { desc = "Test Java class" })
+      vim.api.nvim_create_user_command('JdtTestNearestMethod', function() require'jdtls'.test_nearest_method() end, { desc = "Test nearest Java method" })
+
       local config = {
           settings = {
             java = {
@@ -38,6 +44,10 @@ return {
                   {
                     name = "JavaSE-17",
                     path = "/home/felipe/.sdkman/candidates/java/17.0.14-zulu"
+                  },
+                  {
+                    name = "JavaSE-21",
+                    path = "/home/felipe/.sdkman/candidates/java/21.0.8-zulu"
                   },
                 }
               }
