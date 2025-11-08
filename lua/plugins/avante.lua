@@ -23,6 +23,7 @@ return {
     },
    behaviour = {
       enable_token_counting = true, -- Whether to enable token counting. Default to true.
+      auto_approve_tool_permissions = false,
     },
   windows = {
     position = "left", -- Position of the Avante window
