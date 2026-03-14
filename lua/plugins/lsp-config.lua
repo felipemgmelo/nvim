@@ -6,7 +6,6 @@ return {
       "williamboman/mason.nvim",
     },
     config = function()
-      
       -- Setup mason-lspconfig
       -- Enhanced LSP keybindings with descriptions
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP: Show hover information" })
@@ -16,8 +15,9 @@ return {
       vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, { desc = "LSP: Go to type definition" })
       vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "LSP: Go to declaration" })
       vim.keymap.set({ "x", "n" }, "<leader>ga", vim.lsp.buf.code_action, { desc = "LSP: Code actions" })
-      vim.keymap.set({ "x", "n" }, "<leader>gf", vim.lsp.buf.format, { desc = "LSP: Format document" })
       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Rename symbol" })
+      vim.keymap.set({ "x", "n" }, "<leader>gf", vim.lsp.buf.format, { desc = "LSP: Format document" })
+
       -- function signature help
       vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "LSP: Show signature help" })
 
@@ -26,11 +26,34 @@ return {
       vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "Diagnostic: Previous" })
       vim.keymap.set("n", "<leader>dl", vim.diagnostic.open_float, { desc = "Diagnostic: Show line diagnostics" })
       vim.keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Diagnostic: Set location list" })
-      
-      vim.lsp.enable("jdtls")     --
+
+
+
+      vim.lsp.config('pyright', {
+        settings = {
+          pyright = {
+            disableOrganizeImports = true,
+            disableTaggedHints = true
+          },
+          python = {
+            analysis = {
+              diagnosticSeverityOverrides = {
+                reportUnusedVariable = "none",
+              },
+            },
+          },
+        },
+      })
       vim.lsp.enable('pyright')
+
+      vim.lsp.enable('clangd')
+      vim.lsp.enable("jdtls")
+      vim.lsp.enable("biome")
+      vim.lsp.enable('ruff')
       vim.lsp.enable('ts_ls')
       vim.lsp.enable('gopls')
+      vim.lsp.enable('lua_ls')
+      vim.lsp.enable('jsonls')
     end,
   }
 }

@@ -12,7 +12,7 @@ return {
       local path_to_mason_packages = home .. "/.local/share/nvim/mason/packages"
 
       local path_to_jdtls = path_to_mason_packages .. "/jdtls"
-      local path_to_jar = path_to_jdtls .. "/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar"
+      local path_to_jar = path_to_jdtls .. "/plugins/org.eclipse.equinox.launcher_1.7.100.v20251111-0406.jar"
 
       local path_to_config = path_to_jdtls .. "/config_linux"
       local lombok_path = path_to_jdtls .. "/lombok.jar"
